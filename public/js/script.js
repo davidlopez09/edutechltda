@@ -82,7 +82,7 @@ const heroObserver = new IntersectionObserver(
 const heroStats = document.querySelector(".hero-stats");
 if (heroStats) heroObserver.observe(heroStats);
 
-// ===== AOS =====
+// ===== AOS + MAIN INIT =====
 document.addEventListener("DOMContentLoaded", () => {
     AOS.init({ duration: 800, easing: "ease-out-cubic", once: true, offset: 60 });
 
@@ -92,24 +92,42 @@ document.addEventListener("DOMContentLoaded", () => {
         header.classList.toggle("scrolled", window.scrollY > 60);
     });
 
-    // Mobile menu
+    // ===== MOBILE MENU =====
     const hamburger = document.getElementById("hamburger");
     const navLinks = document.getElementById("navLinks");
-    hamburger.addEventListener("click", () => navLinks.classList.toggle("active"));
-    document
-        .querySelectorAll(".nav-links a")
-        .forEach((a) => a.addEventListener("click", () => navLinks.classList.remove("active")));
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", (e) => {
-            e.preventDefault();
-            const t = document.querySelector(anchor.getAttribute("href"));
-            if (t) window.scrollTo({ top: t.offsetTop - 0, behavior: "smooth" });
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        const icon = hamburger.querySelector("i");
+        if (navLinks.classList.contains("active")) {
+            icon.className = "fas fa-times";
+        } else {
+            icon.className = "fas fa-bars";
+        }
+    });
+
+    document.querySelectorAll(".nav-links a").forEach((a) => {
+        a.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            hamburger.querySelector("i").className = "fas fa-bars";
         });
     });
 
-    // GSAP hero entrance
+    // ===== SMOOTH SCROLL =====
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = anchor.getAttribute("href");
+            const t = document.querySelector(targetId);
+            if (t) {
+                const headerHeight = document.getElementById("header").offsetHeight;
+                const targetTop = t.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                window.scrollTo({ top: targetTop, behavior: "smooth" });
+            }
+        });
+    });
+
+    // ===== GSAP HERO =====
     if (typeof gsap !== "undefined") {
         gsap.fromTo(".hero-badge", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
         gsap.fromTo(".hero-text h1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, delay: 0.4 });
@@ -119,12 +137,13 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.fromTo(".hero-visual", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 1, delay: 0.5 });
     }
 
-    // Modal
+    // ===== PROJECT MODAL =====
     const modal = document.getElementById("projectModal");
     const modalImg = document.getElementById("modalImage");
     const modalTitle = document.getElementById("modalTitle");
     const modalDesc = document.getElementById("modalDescription");
     const closeBtn = document.querySelector(".close-modal");
+
     document.querySelectorAll(".view-project").forEach((btn) => {
         btn.addEventListener("click", () => {
             modalImg.src = btn.getAttribute("data-img");
@@ -134,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.overflow = "hidden";
         });
     });
+
     const closeModal = () => {
         modal.style.display = "none";
         document.body.style.overflow = "auto";

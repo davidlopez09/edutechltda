@@ -33,6 +33,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100%;
 }
 
 html {
@@ -45,6 +46,7 @@ body {
     color: var(--text);
     overflow-x: hidden;
     cursor: none;
+    max-width: 100%;
 }
 
 /* ===== CUSTOM CURSOR ===== */
@@ -1648,49 +1650,72 @@ footer {
     }
 }
 @media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+    html {
+        overflow-x: hidden;
+    }
+    header {
+        overflow: visible; /* ← cambiar de hidden a visible */
+        width: 100%;
+        left: 0;
+        right: 0;
+        background: white; /* ← siempre blanco en móvil */
+    }
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+    nav {
+        width: 100%;
+        max-width: 100%;
+    }
+    .logo img {
+        width: 100px;
+        display: block;
+    }
     .nav-links {
         display: none;
-        position: absolute;
-        top: 70px;
+        position: fixed;
+        top: 0;
         left: 0;
-        width: 100%;
+        width: 100vw;
+        height: 100vh;
         background: white;
         flex-direction: column;
-        padding: 20px 0;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        justify-content: center;
+        align-items: center;
         gap: 0;
+        z-index: 9000; /* ← subir por encima del header */
     }
     .nav-links.active {
         display: flex;
     }
     .nav-links li {
         width: 100%;
+        text-align: center;
     }
     .nav-links a {
         display: block;
-        padding: 14px 30px;
+        padding: 16px 30px;
         border-radius: 0;
+        font-size: 1.1rem;
     }
     .hamburger {
         display: block;
+        position: relative;
+        z-index: 9001; /* ← por encima del menú para poder cerrarlo */
     }
     .services-grid,
     .projects-grid,
-    .blogs-grid,
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    .contact-right {
-        padding: 32px 24px;
+    .blogs-grid {
+        grid-template-columns: 1fr !important;
     }
 }
+
 @media (max-width: 480px) {
     .hero-stats {
         flex-wrap: wrap;
@@ -1698,5 +1723,14 @@ footer {
     }
     .hero-text h1 {
         font-size: 2rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo img {
+        width: 85px;
+    }
+    .hamburger {
+        font-size: 1.2rem;
     }
 }
