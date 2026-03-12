@@ -409,7 +409,7 @@ nav {
 }
 .floating-card {
     position: absolute;
-    background:white;
+    background: white;
     border-radius: var(--radius-lg);
     padding: 20px 24px;
     animation: cardFloat ease-in-out infinite;
@@ -980,22 +980,59 @@ nav {
     object-fit: contain;
 }
 
-/* ===== TESTIMONIALS ===== */
+/* ===== TESTIMONIALS - CARRUSEL ===== */
 .testimonials {
-    padding: 120px 0;
+    padding: 100px 0;
     background: white;
+    overflow: hidden;
 }
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.testimonials-track-wrapper {
+    overflow: hidden;
+    position: relative;
+    margin-top: 40px;
+    padding: 20px 0;
+}
+.testimonials-track-wrapper::before,
+.testimonials-track-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+}
+.testimonials-track-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+}
+.testimonials-track-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+}
+.testimonials-track {
+    display: flex;
     gap: 24px;
+    animation: scrollTestimonials 35s linear infinite;
+    width: max-content;
 }
-
+.testimonials-track:hover {
+    animation-play-state: paused;
+}
+@keyframes scrollTestimonials {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
 .testimonial-card {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 32px;
+    width: 340px;
+    flex-shrink: 0;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
 }
