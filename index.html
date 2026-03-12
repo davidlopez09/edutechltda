@@ -1,9 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!--aqui quiero colocar el incono de la pestaña-->
         <link rel="icon" href="edutech.png" type="image/x-icon" />
         <title>Edutech Ltda - Desarrollo Web Profesional</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -11,28 +10,35 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/public/css/style.css">
     </head>
-
     <body>
-        <!-- Header Section -->
+        <!-- Custom Cursor -->
+        <div class="cursor" id="cursor"></div>
+        <div class="cursor-follower" id="cursorFollower"></div>
+
+        <!-- Header -->
         <header id="header">
             <div class="container">
                 <nav>
                     <div class="logo">
-                        <!-- <h1 style="cursor: pointer" href="#home">
-                            Edu<span style="cursor: pointer" href="#home">tech Ltda</span>
-                        </h1> -->
-                        <img src="edutechlogo1.png" alt="" />
+                        <img src="/public/images/edutechlogo1.png" alt="Edutech Ltda" />
                     </div>
                     <ul class="nav-links" id="navLinks">
                         <li><a href="#home">Inicio</a></li>
                         <li><a href="#services">Servicios</a></li>
                         <li><a href="#projects">Proyectos</a></li>
+                        <li><a href="#process">Proceso</a></li>
                         <li><a href="#mission-vision">Nosotros</a></li>
                         <li><a href="#clients">Clientes</a></li>
                         <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contacto</a></li>
+                        <li><a href="#contact" class="nav-cta">Contacto</a></li>
                     </ul>
                     <div class="hamburger" id="hamburger">
                         <i class="fas fa-bars"></i>
@@ -41,307 +47,348 @@
             </div>
         </header>
 
-        <!-- Hero Section -->
+        <!-- Hero -->
         <section class="hero" id="home">
+            <div class="hero-mesh">
+                <div class="mesh-circle mesh-1"></div>
+                <div class="mesh-circle mesh-2"></div>
+                <div class="mesh-circle mesh-3"></div>
+            </div>
+            <div class="code-particles" id="codeParticles"></div>
             <div class="container">
                 <div class="hero-content">
-                    <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
-                        <h1>Soluciones <span>Digitales</span> para Tu Negocio</h1>
+                    <div class="hero-text" data-aos="fade-right" data-aos-duration="900">
+                        <div class="hero-badge">Desarrollo Digital Premium</div>
+                        <h1>
+                            Transformamos Ideas en<br />
+                            <span class="highlight">Soluciones Digitales</span><br />
+                            Extraordinarias
+                        </h1>
                         <p>
-                            En Edutech Ltda nos especializamos en desarrollar soluciones web y móviles personalizadas
-                            para impulsar tu presencia digital y aumentar tu productividad.
+                            En Edutech Ltda creamos webs, apps y software a medida que impulsan tu negocio. Diseño
+                            moderno, código limpio y resultados reales.
                         </p>
                         <div class="hero-btns">
-                            <a href="#services" class="btn btn-cta">Nuestros Servicios</a>
-                            <a href="#contact" class="btn btn-outline">Contáctanos</a>
+                            <a href="#services" class="btn btn-primary"><i class="fas fa-rocket"></i> Ver Servicios</a>
+                            <a href="#contact" class="btn btn-outline">Hablemos <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-num" data-count="50">0</span>
+                                <span class="stat-label">Proyectos</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-num" data-count="40">0</span>
+                                <span class="stat-label">Clientes</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-num" data-count="5">0</span>
+                                <span class="stat-label">Años exp.</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-num" data-count="100">0</span>
+                                <span class="stat-label">% Satisfacción</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
-                        <img src="home2.jpg" alt="Desarrollo de Software" />
+                    <div class="hero-visual" data-aos="fade-left" data-aos-duration="900">
+                        <div class="hero-card-stack">
+                            <div class="floating-card card-main">
+                                <img src="/public/images/homeNuevo.png" alt="Desarrollo" />
+                            </div>
+                            <div class="floating-card card-code">
+                                <div class="code-line">
+                                    <span class="code-keyword">const</span> <span style="color: #e5c07b">website</span>
+                                    <span style="color: #abb2bf">=</span> <span class="code-keyword">new</span>
+                                    <span class="code-func">Edutech</span>();
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-func">website</span>.<span class="code-func">design</span>(<span
+                                        class="code-string"
+                                        >'premium'</span
+                                    >);
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-func">website</span>.<span class="code-func">build</span>(<span
+                                        class="code-string"
+                                        >'fast'</span
+                                    >);
+                                </div>
+                                <div class="code-line"><span class="code-comment">// ✓ 100% satisfaction</span></div>
+                                <div class="code-line">
+                                    <span class="code-func">website</span>.<span class="code-func">launch</span>();
+                                </div>
+                            </div>
+                            <div class="floating-card card-stat-widget">
+                                <div class="stat-widget-title">Performance</div>
+                                <div class="stat-bar-label"><span>Velocidad</span><span>98%</span></div>
+                                <div class="stat-bar"><div class="stat-bar-fill" style="width: 98%"></div></div>
+                                <div class="stat-bar-label"><span>Diseño</span><span>100%</span></div>
+                                <div class="stat-bar"><div class="stat-bar-fill" style="width: 100%"></div></div>
+                                <div class="stat-bar-label"><span>SEO</span><span>95%</span></div>
+                                <div class="stat-bar"><div class="stat-bar-fill" style="width: 95%"></div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
+        <!-- Services -->
         <section class="services" id="services">
             <div class="container">
-                <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
-                    <h2>Nuestros <span>Servicios</span></h2>
-                    <p>Ofrecemos soluciones tecnológicas completas para potenciar tu negocio en el mundo digital</p>
+                <div class="section-title" data-aos="fade-up">
+                    <span class="section-label">Qué hacemos</span>
+                    <h2>Servicios <span>Profesionales</span></h2>
+                    <p>Soluciones tecnológicas completas para llevar tu negocio al siguiente nivel digital</p>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                        <div class="service-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-icon-wrap"><i class="fas fa-laptop-code"></i></div>
                         <h3>Desarrollo Web</h3>
                         <p>
-                            Creamos sitios web atractivos, responsivos y optimizados para buscadores que representan
-                            profesionalmente tu marca.
+                            Sitios web modernos, rápidos y optimizados para SEO que representan tu marca de forma
+                            profesional y convierten visitantes en clientes.
                         </p>
                         <a
-                            href="https://wa.me/573103716894?text=Hola%2C%20cordial%20saludo.%20Estoy%20interesado%20en%20el%20servicio%20de%20Desarrollo%20Web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20al%20respecto.%20%C2%A1Gracias!"
+                            href="https://wa.me/573103716894?text=Hola,%20me%20interesa%20el%20servicio%20de%20Desarrollo%20Web"
                             target="_blank"
-                        >
-                            Saber más <i class="fas fa-arrow-right"></i>
-                        </a>
+                            class="service-link"
+                            >Saber más <i class="fas fa-arrow-right"></i
+                        ></a>
                     </div>
-                    <div class="service-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                        <div class="service-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="service-icon-wrap"><i class="fas fa-shopping-cart"></i></div>
                         <h3>Tiendas Online</h3>
                         <p>
-                            Desarrollamos plataformas e-commerce completas con pasarelas de pago, gestión de inventario
-                            y panel administrativo.
+                            E-commerce completos con pasarelas de pago, gestión de inventario y panel administrativo
+                            para vender las 24/7 sin límites.
                         </p>
                         <a
-                            href="https://wa.me/573103716894?text=Hola%2C%20cordial%20saludo.%20Estoy%20interesado%20en%20el%20servicio%20de%20Tiendas%20Online%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20al%20respecto.%20%C2%A1Gracias!"
+                            href="https://wa.me/573103716894?text=Hola,%20me%20interesa%20el%20servicio%20de%20Tiendas%20Online"
                             target="_blank"
-                        >
-                            Saber más <i class="fas fa-arrow-right"></i>
-                        </a>
+                            class="service-link"
+                            >Saber más <i class="fas fa-arrow-right"></i
+                        ></a>
                     </div>
-                    <div class="service-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                        <div class="service-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon-wrap"><i class="fas fa-mobile-alt"></i></div>
                         <h3>Aplicaciones Móviles</h3>
                         <p>
-                            Diseñamos y desarrollamos apps nativas e híbridas para iOS y Android que conectan tu negocio
-                            con tus clientes.
+                            Apps nativas e híbridas para iOS y Android. Conecta tu negocio con tus clientes en cualquier
+                            lugar y en cualquier momento.
                         </p>
                         <a
-                            href="https://wa.me/573103716894?text=Hola%2C%20cordial%20saludo.%20Estoy%20interesado%20en%20el%20servicio%20de%20Aplicaciones%20M%C3%B3viles%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20al%20respecto.%20%C2%A1Gracias!"
+                            href="https://wa.me/573103716894?text=Hola,%20me%20interesa%20el%20servicio%20de%20Aplicaciones%20Móviles"
                             target="_blank"
-                        >
-                            Saber más <i class="fas fa-arrow-right"></i>
-                        </a>
+                            class="service-link"
+                            >Saber más <i class="fas fa-arrow-right"></i
+                        ></a>
                     </div>
-                    <div class="service-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                        <div class="service-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+                        <div class="service-icon-wrap"><i class="fas fa-cogs"></i></div>
                         <h3>Software a Medida</h3>
                         <p>
-                            Creamos soluciones de software personalizadas para automatizar procesos y mejorar la
-                            eficiencia de tu empresa.
+                            Sistemas personalizados para automatizar procesos, mejorar eficiencia y escalar operaciones
+                            según las necesidades únicas de tu empresa.
                         </p>
                         <a
-                            href="https://wa.me/573103716894?text=Hola%2C%20cordial%20saludo.%20Estoy%20interesado%20en%20el%20servicio%20de%20Software%20a%20Medida%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20al%20respecto.%20%C2%A1Gracias!"
+                            href="https://wa.me/573103716894?text=Hola,%20me%20interesa%20el%20servicio%20de%20Software%20a%20Medida"
                             target="_blank"
-                        >
-                            Saber más <i class="fas fa-arrow-right"></i>
-                        </a>
+                            class="service-link"
+                            >Saber más <i class="fas fa-arrow-right"></i
+                        ></a>
                     </div>
-                    <div class="service-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-                        <div class="service-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon-wrap"><i class="fas fa-code"></i></div>
                         <h3>Actualización de Código</h3>
                         <p>
-                            Modernizamos y optimizamos tu código existente para mejorar rendimiento, seguridad y
-                            escalabilidad de tus aplicaciones.
+                            Modernizamos tu código existente para mejorar rendimiento, seguridad y escalabilidad. Tu
+                            plataforma siempre al día.
                         </p>
                         <a
-                            href="https://wa.me/573103716894?text=Hola%2C%20cordial%20saludo.%20Estoy%20interesado%20en%20el%20servicio%20de%20Actualizaci%C3%B3n%20de%20C%C3%B3digo%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20al%20respecto.%20%C2%A1Gracias!"
+                            href="https://wa.me/573103716894?text=Hola,%20me%20interesa%20la%20Actualización%20de%20Código"
                             target="_blank"
-                        >
-                            Saber más <i class="fas fa-arrow-right"></i>
-                        </a>
+                            class="service-link"
+                            >Saber más <i class="fas fa-arrow-right"></i
+                        ></a>
                     </div>
-                    <div class="service-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-                        <div class="service-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="350">
+                        <div class="service-icon-wrap"><i class="fas fa-tools"></i></div>
                         <h3>Mantenimiento</h3>
                         <p>
-                            Ofrecemos servicios continuos de mantenimiento, actualización y soporte técnico para
-                            mantener tu plataforma funcionando correctamente.
+                            Soporte técnico continuo, actualizaciones y monitoreo para que tu plataforma funcione
+                            perfectamente sin interrupciones.
                         </p>
                         <a
-                            href="https://wa.me/573103716894?text=Hola%2C%20cordial%20saludo.%20Estoy%20interesado%20en%20el%20servicio%20de%20Mantenimiento%20a%20Plataformas%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20al%20respecto.%20%C2%A1Gracias!"
+                            href="https://wa.me/573103716894?text=Hola,%20me%20interesa%20el%20servicio%20de%20Mantenimiento"
                             target="_blank"
-                        >
-                            Saber más <i class="fas fa-arrow-right"></i>
-                        </a>
+                            class="service-link"
+                            >Saber más <i class="fas fa-arrow-right"></i
+                        ></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Process -->
+        <section class="process" id="process">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <span class="section-label">Cómo trabajamos</span>
+                    <h2>Nuestro <span>Proceso</span></h2>
+                    <p>Un flujo de trabajo claro y transparente para entregar resultados de calidad</p>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-num">01</div>
+                        <h4>Descubrimiento</h4>
+                        <p>Escuchamos tus objetivos, analizamos tu mercado y definimos el alcance del proyecto.</p>
+                    </div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-num">02</div>
+                        <h4>Diseño</h4>
+                        <p>Creamos prototipos visuales y arquitectura de información con tu aprobación en cada paso.</p>
+                    </div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                        <div class="step-num">03</div>
+                        <h4>Desarrollo</h4>
+                        <p>Construimos tu solución con código limpio, buenas prácticas y tecnologías modernas.</p>
+                    </div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                        <div class="step-num">04</div>
+                        <h4>Lanzamiento</h4>
+                        <p>Pruebas exhaustivas, despliegue y soporte post-lanzamiento para garantizar el éxito.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
         <section class="projects" id="projects">
             <div class="container">
-                <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <div class="section-title" data-aos="fade-up">
+                    <span class="section-label">Portafolio</span>
                     <h2>Proyectos <span>Realizados</span></h2>
-                    <p>Explora algunos de nuestros trabajos destacados que demuestran nuestra experiencia y calidad</p>
+                    <p>Trabajos que demuestran nuestra experiencia, dedicación y capacidad técnica</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
-                        <div class="project-img">
-                            <img src="empanadictos.png" alt="Empanadictos" />
-                        </div>
+                    <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="project-img"><img src="/public/images/empanadictos.png" alt="Empanadictos" /></div>
                         <div class="project-info">
                             <h3>Empanadictos</h3>
-                            <p>Tienda online completa para Empanadictos, la marca que combina sabor y estilo.</p>
+                            <p>Tienda online completa para la marca que combina sabor y estilo único.</p>
                             <div class="project-tags">
-                                <span class="project-tag">HTML</span>
-                                <span class="project-tag">CSS</span>
-                                <span class="project-tag">JS</span>
-                                <span class="project-tag">PHP</span>
-                                <span class="project-tag">MySQL</span>
+                                <span class="project-tag">HTML</span><span class="project-tag">CSS</span
+                                ><span class="project-tag">JS</span><span class="project-tag">PHP</span
+                                ><span class="project-tag">MySQL</span>
                             </div>
                             <button
-                                class="btn btn-sm view-project"
-                                data-img="empanadictos.png"
+                                class="btn-sm view-project"
+                                data-img="/public/images/empanadictos.png"
                                 data-title="Empanadictos"
-                                data-description="Tienda online completa para Empanadictos, la marca que combina sabor y estilo.
-                    Este proyecto está diseñado para Empanadictos, una marca innovadora que ofrece ramos de empanadas, moda y ropa temática inspirada en su producto estrella."
+                                data-description="Tienda online completa para Empanadictos, la marca que combina sabor y estilo. Diseñada para ofrecer ramos de empanadas, moda y ropa temática inspirada en su producto estrella."
                             >
-                                Ver Proyecto
+                                <i class="fas fa-eye"></i> Ver Proyecto
                             </button>
                         </div>
                     </div>
-
-                    <div class="project-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
-                        <div class="project-img">
-                            <img src="food.png" alt="App de Delivery" />
-                        </div>
+                    <div class="project-card" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="project-img"><img src="/public/images/food.png" alt="Delicious Hamburgers" /></div>
                         <div class="project-info">
                             <h3>Delicious Hamburgers</h3>
-                            <p>Tienda online para las mejores hamburguesas, con sistema de pedidos y pagos Online.</p>
+                            <p>Tienda online para hamburguesas con sistema de pedidos y pagos online.</p>
                             <div class="project-tags">
-                                <span class="project-tag">HTML</span>
-                                <span class="project-tag">CSS</span>
-                                <span class="project-tag">JS</span>
-                                <span class="project-tag">PHP</span>
-                                <span class="project-tag">MySQL</span>
-                                <span class="project-tag">API</span>
+                                <span class="project-tag">HTML</span><span class="project-tag">CSS</span
+                                ><span class="project-tag">JS</span><span class="project-tag">PHP</span
+                                ><span class="project-tag">API</span>
                             </div>
                             <button
-                                class="btn btn-sm view-project"
-                                data-img="food.png"
+                                class="btn-sm view-project"
+                                data-img="/public/images/food.png"
                                 data-title="Delicious Hamburgers"
-                                data-description="Tienda online para las mejores hamburguesas de Córdoba, con sistema de pedidos y seguimiento en tiempo real.
-                    Desarrollada con diseño responsivo y pasarelas de pago seguras, esta plataforma permite a los clientes personalizar su pedido, pagar online y seguir el estado de su orden.
-                    Incluye base de datos robusta para gestionar productos, pagos, pedidos y usuarios, además de un panel administrativo para controlar inventario y reportes de ventas fácilmente."
+                                data-description="Tienda online para las mejores hamburguesas con sistema de pedidos, seguimiento en tiempo real y pasarelas de pago seguras. Permite personalizar pedidos, pagar online y hacer seguimiento del estado de la orden. Incluye panel administrativo para inventario y reportes de ventas."
                             >
-                                Ver Proyecto
+                                <i class="fas fa-eye"></i> Ver Proyecto
                             </button>
                         </div>
                     </div>
-
-                    <div class="project-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
-                        <div class="project-img">
-                            <img src="INTEGRA.png" alt="Portal Inmobiliario" />
-                        </div>
+                    <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="project-img"><img src="/public/images/INTEGRA.png" alt="INTEGRA" /></div>
                         <div class="project-info">
                             <h3>INTEGRA</h3>
-                            <p>Software logístico y de transporte para una gestión eficiente y centralizada.</p>
+                            <p>Software logístico y de transporte para gestión eficiente y centralizada.</p>
                             <div class="project-tags">
-                                <span class="project-tag">HTML</span>
-                                <span class="project-tag">CSS</span>
-                                <span class="project-tag">JS</span>
-                                <span class="project-tag">PHP</span>
-                                <span class="project-tag">MySQL</span>
+                                <span class="project-tag">HTML</span><span class="project-tag">CSS</span
+                                ><span class="project-tag">JS</span><span class="project-tag">PHP</span
+                                ><span class="project-tag">MySQL</span>
                             </div>
                             <button
-                                class="btn btn-sm view-project"
-                                data-img="INTEGRA.png"
+                                class="btn-sm view-project"
+                                data-img="/public/images/INTEGRA.png"
                                 data-title="INTEGRA"
-                                data-description="Integra es una solución diseñada para gestionar de forma eficiente las operaciones logísticas desde el ingreso hasta la entrega final. Incluye dos aplicaciones móviles especializadas:
-                    1. Control de Acceso: registra la entrada de contenedores, personal de la empresa y visitas, garantizando seguridad y control en el punto de acceso.
-                    2. Evidencias: permite documentar con fotos y formularios las evidencias de vaciado e inspecciones de contenedores, asegurando transparencia y cumplimiento operativo.
-                    Con una base de datos robusta, panel de administración en tiempo real, y diseño responsivo, Integra garantiza eficacia, trazabilidad y control total de las operaciones logísticas."
+                                data-description="Solución integral para gestionar operaciones logísticas desde el ingreso hasta la entrega final. Incluye Control de Acceso para contenedores y personal, y módulo de Evidencias para documentar inspecciones con fotos y formularios. Panel de administración en tiempo real y trazabilidad completa."
                             >
-                                Ver Proyecto
+                                <i class="fas fa-eye"></i> Ver Proyecto
                             </button>
                         </div>
                     </div>
-
-                    <div class="project-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
-                        <div class="project-img">
-                            <img src="ferro.png" alt="Tuing App" />
-                        </div>
+                    <div class="project-card" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="project-img"><img src="/public/images/ferro.png" alt="Tuing App" /></div>
                         <div class="project-info">
                             <h3>Tuing App</h3>
-                            <p>
-                                Tuing App: software de caja para farmacias con facturación electrónica y gestión
-                                avanzada de ventas.
-                            </p>
+                            <p>Software de caja para farmacias con facturación electrónica DIAN.</p>
                             <div class="project-tags">
-                                <span class="project-tag">REACT</span>
-                                <span class="project-tag">JS</span>
-                                <span class="project-tag">MySQL</span>
-                                <span class="project-tag">PHP</span>
-                                <span class="project-tag">CSS</span>
-                                <span class="project-tag">API</span>
+                                <span class="project-tag">React</span><span class="project-tag">JS</span
+                                ><span class="project-tag">PHP</span><span class="project-tag">MySQL</span
+                                ><span class="project-tag">API</span>
                             </div>
                             <button
-                                class="btn btn-sm view-project"
-                                data-img="ferro.png"
+                                class="btn-sm view-project"
+                                data-img="/public/images/ferro.png"
                                 data-title="Tuing App"
-                                data-description="Tuing App es un sistema de punto de venta diseñado específicamente para farmacias, que permite gestionar ventas en caja, controlar usuarios por roles, y almacenar información en una base de datos segura.
-                    Incluye informes detallados de ventas y promedios presentados en gráficas dinámicas, además de facturación electrónica integrada con la DIAN para cumplir con la normativa fiscal.
-                    Su diseño intuitivo y responsivo garantiza una operación rápida, precisa y segura en cada transacción."
+                                data-description="Sistema de punto de venta para farmacias: gestión de ventas en caja, control por roles de usuario y reportes gráficos de ventas. Facturación electrónica integrada con la DIAN para cumplir normativa fiscal colombiana. Diseño intuitivo para operación rápida y precisa."
                             >
-                                Ver Proyecto
+                                <i class="fas fa-eye"></i> Ver Proyecto
                             </button>
                         </div>
                     </div>
-
-                    <div class="project-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
-                        <div class="project-img">
-                            <img src="solocluct_fondo.jpg" alt="Solo Clutch Cartagena SAS" />
-                        </div>
+                    <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="project-img"><img src="/public/images/solocluct_fondo.jpg" alt="Solo Clutch" /></div>
                         <div class="project-info">
-                            <h3>Solo Clutch Cartagena SAS</h3>
-                            <p>
-                                Sitio web para venta de repuestos automotrices y servicios de mantenimiento para
-                                vehículos de todas las cilindradas.
-                            </p>
+                            <h3>Solo Clutch Cartagena</h3>
+                            <p>Sitio web de repuestos automotrices y servicios de taller mecánico.</p>
                             <div class="project-tags">
-                                <span class="project-tag">HTML</span>
-                                <span class="project-tag">CSS</span>
-                                <span class="project-tag">JS</span>
-                                <span class="project-tag">PHP</span>
-                                <span class="project-tag">MySQL</span>
+                                <span class="project-tag">HTML</span><span class="project-tag">CSS</span
+                                ><span class="project-tag">JS</span><span class="project-tag">PHP</span
+                                ><span class="project-tag">MySQL</span>
                             </div>
                             <button
-                                class="btn btn-sm view-project"
-                                data-img="solocluct_fondo.jpg"
+                                class="btn-sm view-project"
+                                data-img="/public/images/solocluct_fondo.jpg"
                                 data-title="Solo Clutch Cartagena SAS"
-                                data-description="Sitio web completo para Solo Clutch: catálogo de repuestos (embragues, discos, prensas), servicios de taller mecánico, cotizaciones vía WhatsApp y diseño responsivo."
+                                data-description="Sitio web completo con catálogo de repuestos automotrices (embragues, discos, prensas), servicios de taller mecánico, sistema de cotizaciones vía WhatsApp y diseño completamente responsivo para todos los dispositivos."
                             >
-                                Ver Proyecto
+                                <i class="fas fa-eye"></i> Ver Proyecto
                             </button>
                         </div>
                     </div>
-
-                    <div class="project-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
-                        <div class="project-img">
-                            <img src="avicola.png" alt="Tuing App" />
-                        </div>
+                    <div class="project-card" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="project-img"><img src="/public/images/avicola.png" alt="Software Avícola" /></div>
                         <div class="project-info">
                             <h3>Software Avícola</h3>
-                            <p>Software Avícola de Trazabilidad, ventas y Gestión de Lotes</p>
+                            <p>Sistema de trazabilidad, ventas y gestión de lotes avícolas.</p>
                             <div class="project-tags">
-                                <span class="project-tag">REACT</span>
-                                <span class="project-tag">JS</span>
-                                <span class="project-tag">MySQL</span>
-                                <span class="project-tag">PHP</span>
-                                <span class="project-tag">CSS</span>
-                                <span class="project-tag">.NET</span>
+                                <span class="project-tag">React</span><span class="project-tag">PHP</span
+                                ><span class="project-tag">MySQL</span><span class="project-tag">.NET</span>
                             </div>
                             <button
-                                class="btn btn-sm view-project"
-                                data-img="avicola.png"
+                                class="btn-sm view-project"
+                                data-img="/public/images/avicola.png"
                                 data-title="Software Avícola"
-                                data-description="Sistema desarrollado para optimizar la trazabilidad en la producción avícola, registrando de manera estructurada los lotes de pollos, inversiones asociadas a insumos por lote, control diario de edad de los pollitos y mortalidad. Permite gestionar la venta de lotes por unidad a precios sugeridos, ofreciendo informes detallados por lote o por mes que reflejan inversiones, ventas, utilidades o pérdidas, con resultados numéricos claros y una trazabilidad completa del proceso."
+                                data-description="Sistema para trazabilidad en producción avícola: registro de lotes, inversiones por insumos, control diario de mortalidad y edad. Gestión de ventas por unidad con precios sugeridos. Informes detallados de utilidades/pérdidas por lote y por mes con gráficas claras."
                             >
-                                Ver Proyecto
+                                <i class="fas fa-eye"></i> Ver Proyecto
                             </button>
                         </div>
                     </div>
@@ -349,10 +396,10 @@
             </div>
         </section>
 
-        <!-- Modal para ver proyecto -->
+        <!-- Modal -->
         <div id="projectModal" class="project-modal">
             <div class="modal-content">
-                <span class="close-modal">&times;</span>
+                <span class="close-modal"><i class="fas fa-times"></i></span>
                 <div class="modal-image-container">
                     <img id="modalImage" src="" alt="Proyecto" />
                 </div>
@@ -363,249 +410,186 @@
             </div>
         </div>
 
-        <!-- Mission & Vision Section -->
+        <!-- Mission Vision -->
         <section class="mission-vision" id="mission-vision">
             <div class="container">
-                <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <div class="section-title" data-aos="fade-up">
+                    <span class="section-label">Quiénes somos</span>
                     <h2>Nuestra <span>Filosofía</span></h2>
-                    <p>
-                        Conoce más sobre nuestros valores y lo que nos impulsa a ofrecer soluciones tecnológicas de
-                        calidad
-                    </p>
+                    <p>Los valores y propósito que nos guían en cada proyecto</p>
                 </div>
-                <div class="mission-vision-container">
-                    <div class="mission" data-aos="fade-right" data-aos-duration="1000">
-                        <h3><i class="fas fa-bullseye"></i> Misión</h3>
+                <div class="mv-grid">
+                    <div class="mv-card" data-aos="fade-right">
+                        <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+                        <h3>Misión</h3>
                         <p>
-                            Nuestra misión es transformar ideas en soluciones digitales innovadoras que impulsen el
-                            crecimiento de nuestros clientes. Nos comprometemos a ofrecer servicios de desarrollo
-                            tecnológico de alta calidad, personalizados y orientados a resultados, estableciendo
-                            relaciones duraderas basadas en la confianza y la excelencia.
+                            Transformar ideas en soluciones digitales innovadoras que impulsen el crecimiento de
+                            nuestros clientes. Nos comprometemos a ofrecer servicios de desarrollo tecnológico de alta
+                            calidad, personalizados y orientados a resultados.
                         </p>
                         <p>
                             Trabajamos con pasión para crear experiencias digitales que conecten a nuestros clientes con
-                            su audiencia, optimizando procesos y aumentando su competitividad en el mercado digital.
+                            su audiencia, optimizando procesos y aumentando su competitividad.
                         </p>
                     </div>
-                    <div class="vision" data-aos="fade-left" data-aos-duration="1000">
-                        <h3><i class="fas fa-eye"></i> Visión</h3>
+                    <div class="mv-card" data-aos="fade-left">
+                        <div class="mv-icon"><i class="fas fa-eye"></i></div>
+                        <h3>Visión</h3>
                         <p>
-                            Aspiramos a ser reconocidos como líderes en el desarrollo de soluciones tecnológicas,
-                            destacándonos por nuestra capacidad de innovación, calidad técnica y enfoque centrado en el
-                            cliente. Buscamos expandir nuestra presencia global manteniendo el compromiso con la
-                            excelencia y la mejora continua.
+                            Ser reconocidos como líderes en desarrollo de soluciones tecnológicas, destacándonos por
+                            innovación, calidad técnica y enfoque centrado en el cliente. Expandir nuestra presencia
+                            global manteniendo el compromiso con la excelencia.
                         </p>
                         <p>
-                            Queremos ser el socio tecnológico preferido por empresas que buscan transformar digitalmente
-                            sus negocios, contribuyendo al desarrollo y éxito de cada proyecto que emprendemos.
+                            Ser el socio tecnológico preferido por empresas que buscan transformar digitalmente sus
+                            negocios, contribuyendo al éxito de cada proyecto.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Clients Section -->
+        <!-- Clients -->
         <section class="clients" id="clients">
             <div class="container">
-                <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
-                    <h2>Algunos de <span>Nuestros Clientes</span></h2>
-                    <p>
-                        Estamos orgullosos de haber colaborado con diversas empresas y marcas que confían en nosotros
-                        para sus soluciones digitales. Aquí una selección de ellos:
-                    </p>
+                <div class="section-title" data-aos="fade-up">
+                    <span class="section-label">Confían en nosotros</span>
+                    <h2>Nuestros <span>Clientes</span></h2>
+                    <p>Empresas que han confiado en Edutech para su transformación digital</p>
                 </div>
-                <div class="clients-grid">
-                    <!-- Fila superior (visual) -->
-                    <div class="client-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                        <img src="empanadictoslogo.jpg" alt="Logo Empanadictos" />
-                    </div>
-                    <div class="client-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                        <img src="aquacord.png" alt="Logo Aquacord Services" />
-                    </div>
-                    <div class="client-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                        <img src="atomikalogo.jpg" alt="Logo Atómika Marketeam" />
-                    </div>
-                    <div class="client-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                        <img src="ccmonterialogo.svg" alt="Logo Cámara de Comercio de Montería" />
-                    </div>
-                    <!-- Fila inferior -->
-                    <div class="client-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-                        <img src="doumarloo.jpg.png" alt="Logo Doumar Group" />
-                    </div>
-                    <div class="client-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-                        <img src="lyelogo.jpg" alt="Logo LYE Inversiones" />
-                    </div>
-                    <div class="client-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="700">
-                        <img src="soloclutchlogo.png" alt="Logo Solo Clutch" />
-                    </div>
-                    <div class="client-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
-                        <img src="digitalshoplogo.jpeg" alt="Digital Shop" />
-                        <!-- Reemplaza con tu octavo logo real -->
-                    </div>
+            </div>
+            <div class="clients-track-wrapper" data-aos="fade-up">
+                <div class="clients-track" id="clientsTrack">
+                    <div class="client-logo"><img src="/public/images/empanadictoslogo.jpg" alt="Empanadictos" /></div>
+                    <div class="client-logo"><img src="/public/images/aquacord.png" alt="Aquacord Services" /></div>
+                    <div class="client-logo"><img src="/public/images/atomikalogo.jpg" alt="Atómika Marketeam" /></div>
+                    <div class="client-logo"><img src="/public/images/ccmonterialogo.svg" alt="Cámara de Comercio Montería" /></div>
+                    <div class="client-logo"><img src="/public/images/doumarloo.jpg.png" alt="Doumar Group" /></div>
+                    <div class="client-logo"><img src="/public/images/lyelogo.jpg" alt="LYE Inversiones" /></div>
+                    <div class="client-logo"><img src="/public/images/soloclutchlogo.png" alt="Solo Clutch" /></div>
+                    <div class="client-logo"><img src="/public/images/digitalshoplogo.jpeg" alt="Digital Shop" /></div>
+                    <!-- duplicated for infinite scroll -->
+                    <div class="client-logo"><img src="/public/images/empanadictoslogo.jpg" alt="Empanadictos" /></div>
+                    <div class="client-logo"><img src="/public/images/aquacord.png" alt="Aquacord Services" /></div>
+                    <div class="client-logo"><img src="/public/images/atomikalogo.jpg" alt="Atómika Marketeam" /></div>
+                    <div class="client-logo"><img src="/public/images/ccmonterialogo.svg" alt="Cámara de Comercio Montería" /></div>
+                    <div class="client-logo"><img src="/public/images/doumarloo.jpg.png" alt="Doumar Group" /></div>
+                    <div class="client-logo"><img src="/public/images/lyelogo.jpg" alt="LYE Inversiones" /></div>
+                    <div class="client-logo"><img src="/public/images/soloclutchlogo.png" alt="Solo Clutch" /></div>
+                    <div class="client-logo"><img src="/public/images/digitalshoplogo.jpeg" alt="Digital Shop" /></div>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
+        <!-- Testimonials -->
         <section class="testimonials" id="testimonials">
             <div class="container">
-                <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <div class="section-title" data-aos="fade-up">
+                    <span class="section-label">Opiniones reales</span>
                     <h2>Lo Que Dicen <span>Nuestros Clientes</span></h2>
-                    <p>Opiniones reales de clientes satisfechos con nuestros servicios</p>
+                    <p>La satisfacción de nuestros clientes es nuestra mayor motivación</p>
                 </div>
                 <div class="testimonials-grid">
-                    <!-- Testimonio 1 -->
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">
-                                "Edutech transformó nuestra presencia online. El sitio web superó expectativas en diseño
-                                y funcionalidad. ¡Equipo muy profesional!"
-                            </p>
-                            <h4 class="testimonial-author">Carlos Ramírez</h4>
-                            <p class="testimonial-position">Comerciante</p>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                        <p class="testimonial-text">
+                            "Edutech transformó nuestra presencia online. El sitio web superó expectativas en diseño y
+                            funcionalidad. ¡Equipo muy profesional!"
+                        </p>
+                        <div class="testimonial-author">Carlos Ramírez</div>
+                        <div class="testimonial-position">Comerciante</div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
+                            ><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
-
-                    <!-- Testimonio 2 -->
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">
-                                "El software de Edutech impulsó nuestro negocio con mejor trazabilidad y ventas.
-                                Cumplieron todos los objetivos a la perfección."
-                            </p>
-                            <h4 class="testimonial-author">Laura Mendoza</h4>
-                            <p class="testimonial-position">Gerente de Pollos Avicor</p>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                        <p class="testimonial-text">
+                            "El software de Edutech impulsó nuestro negocio con mejor trazabilidad y ventas. Cumplieron
+                            todos los objetivos a la perfección."
+                        </p>
+                        <div class="testimonial-author">Laura Mendoza</div>
+                        <div class="testimonial-position">Gerente de Pollos Avicor</div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
+                            ><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
-
-                    <!-- Testimonio 3 -->
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">
-                                "¡Gracias Edutech! Me encantó mi tienda virtual. Excelente servicio, asesoría y atención
-                                a los detalles."
-                            </p>
-                            <h4 class="testimonial-author">Jose Otero</h4>
-                            <p class="testimonial-position">Licenciado en Educación Física</p>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                        <p class="testimonial-text">
+                            "¡Gracias Edutech! Me encantó mi tienda virtual. Excelente servicio, asesoría y atención a
+                            los detalles. ¡Recomendadísimos!"
+                        </p>
+                        <div class="testimonial-author">Jose Otero</div>
+                        <div class="testimonial-position">Licenciado en Educación Física</div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
+                            ><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
-
-                    <!-- Testimonio 4 -->
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">
-                                "Edutech superó expectativas. El sistema es intuitivo y perfecto para nuestras
-                                necesidades. ¡Gran profesionalismo!"
-                            </p>
-                            <h4 class="testimonial-author">María Fernanda Ruiz</h4>
-                            <p class="testimonial-position">Administradora de Empresas</p>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="250">
+                        <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                        <p class="testimonial-text">
+                            "Edutech superó expectativas. El sistema es intuitivo y perfecto para nuestras necesidades.
+                            ¡Gran profesionalismo!"
+                        </p>
+                        <div class="testimonial-author">María Fernanda Ruiz</div>
+                        <div class="testimonial-position">Administradora de Empresas</div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
+                            ><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
-
-                    <!-- Testimonio 5 -->
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">
-                                "El equipo entendió todo desde el inicio. Sitio web moderno, rápido y fácil de
-                                gestionar. ¡Muy satisfechos!"
-                            </p>
-                            <h4 class="testimonial-author">Carlos Andrés Mejía</h4>
-                            <p class="testimonial-position">Director de Marketing Digital</p>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                        <p class="testimonial-text">
+                            "El equipo entendió todo desde el inicio. Sitio web moderno, rápido y fácil de gestionar.
+                            ¡Muy satisfechos con el resultado!"
+                        </p>
+                        <div class="testimonial-author">Carlos Andrés Mejía</div>
+                        <div class="testimonial-position">Director de Marketing Digital</div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
+                            ><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
-
-                    <!-- Testimonio 6 -->
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">
-                                "Experiencia excelente con Edutech. Transformaron nuestras ideas en una plataforma
-                                atractiva e intuitiva. ¡Recomendados!"
-                            </p>
-                            <h4 class="testimonial-author">Laura Hernández</h4>
-                            <p class="testimonial-position">Coordinadora Académica</p>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="350">
+                        <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                        <p class="testimonial-text">
+                            "Experiencia excelente con Edutech. Transformaron nuestras ideas en una plataforma atractiva
+                            e intuitiva. ¡100% recomendados!"
+                        </p>
+                        <div class="testimonial-author">Laura Hernández</div>
+                        <div class="testimonial-position">Coordinadora Académica</div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
+                            ><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Blog Section -->
+        <!-- Blog -->
         <section class="blog" id="blog">
             <div class="container">
-                <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <div class="section-title" data-aos="fade-up">
+                    <span class="section-label">Recursos</span>
                     <h2>Nuestro <span>Blog</span></h2>
-                    <p>Artículos y recursos sobre las últimas tendencias en desarrollo web y tecnología</p>
+                    <p>Tendencias, consejos y recursos sobre desarrollo web y tecnología digital</p>
                 </div>
                 <div class="blogs-grid">
-                    <div class="blog-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="blog-img">
                             <img
                                 src="https://marketing4ecommerce.net/wp-content/uploads/2024/11/diseno-web.jpg"
-                                alt=""
+                                alt="Diseño Web"
                             />
                         </div>
                         <div class="blog-content">
-                            <p class="blog-date">15 de Abril, 2025</p>
+                            <p class="blog-date"><i class="far fa-calendar"></i> 15 de Abril, 2025</p>
                             <h3>Tendencias de Diseño Web para 2025</h3>
                             <p>
                                 Descubre las tendencias de diseño web más innovadoras que están definiendo la
@@ -614,12 +598,13 @@
                             <a
                                 href="https://www.latevaweb.com/diseno-web-2025"
                                 target="_blank"
-                                rel="noopener noreferrer"
+                                rel="noopener"
+                                class="read-more"
                                 >Leer más <i class="fas fa-arrow-right"></i
                             ></a>
                         </div>
                     </div>
-                    <div class="blog-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="blog-img">
                             <img
                                 src="https://valordeley.es/wp-content/uploads/2023/07/la-importancia-del-seo.jpg"
@@ -627,34 +612,37 @@
                             />
                         </div>
                         <div class="blog-content">
-                            <p class="blog-date">8 de Abril, 2025</p>
+                            <p class="blog-date"><i class="far fa-calendar"></i> 8 de Abril, 2025</p>
                             <h3>La Importancia del SEO en Tu Sitio Web</h3>
                             <p>
-                                Aprende cómo implementar estrategias SEO efectivas para mejorar el posicionamiento de tu
-                                sitio web.
+                                Aprende a implementar estrategias SEO efectivas para mejorar el posicionamiento de tu
+                                web.
                             </p>
                             <a
+                                href="https://rockcontent.com/es/blog/que-es-seo/"
                                 target="_blank"
-                                href="https://rockcontent.com/es/blog/que-es-seo/#:~:text=Con%20el%20SEO%20u%20Optimizaci%C3%B3n,%C2%A1Es%20la%20operaci%C3%B3n%20perfecta!"
+                                rel="noopener"
+                                class="read-more"
                                 >Leer más <i class="fas fa-arrow-right"></i
                             ></a>
                         </div>
                     </div>
-                    <div class="blog-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="blog-img">
                             <img
                                 src="https://seoaustral.com/wp-content/uploads/elementor/thumbs/Guia-para-aumentar-la-tasa-de-conversion-de-tu-e-commerce-qxoucds3gaa6ou48bv1gcudxqohbsq03yd13yub91k.png"
-                                alt="E-commerce "
+                                alt="E-commerce"
                             />
                         </div>
                         <div class="blog-content">
-                            <p class="blog-date">2 de Abril, 2025</p>
+                            <p class="blog-date"><i class="far fa-calendar"></i> 2 de Abril, 2025</p>
                             <h3>Cómo Aumentar las Conversiones en Tu E-commerce</h3>
-                            <p>
-                                Estrategias prácticas para optimizar la experiencia de usuario y aumentar las ventas en
-                                tu tienda online.
-                            </p>
-                            <a target="_blank" href="https://www.tidio.com/es/blog/tasa-conversion-ecommerce/"
+                            <p>Estrategias prácticas para optimizar la experiencia de usuario y aumentar ventas.</p>
+                            <a
+                                href="https://www.tidio.com/es/blog/tasa-conversion-ecommerce/"
+                                target="_blank"
+                                rel="noopener"
+                                class="read-more"
                                 >Leer más <i class="fas fa-arrow-right"></i
                             ></a>
                         </div>
@@ -663,67 +651,64 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact -->
         <section class="contact" id="contact">
             <div class="container">
-                <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <div class="section-title" data-aos="fade-up">
+                    <span class="section-label">Hablemos</span>
                     <h2>Ponte en <span>Contacto</span></h2>
-                    <p>Estamos listos para ayudarte con tu próximo proyecto digital</p>
+                    <p>Cuéntanos tu proyecto y te daremos una propuesta a medida</p>
                 </div>
-                <div class="contact-container">
-                    <div class="contact-info" data-aos="fade-right" data-aos-duration="1000">
+                <div class="contact-wrapper" data-aos="fade-up">
+                    <div class="contact-left">
                         <h3>Información de Contacto</h3>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
+                        <p>Estamos listos para ayudarte a llevar tu negocio al siguiente nivel digital.</p>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-detail-text">
                                 <h4>Email</h4>
                                 <p>edutechltda.web@gmail.com</p>
                             </div>
                         </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="contact-detail-text">
                                 <h4>Teléfono</h4>
-                                <p>+57 323 384 7323</p>
-                                <p>+57 310 371 6894</p>
+                                <p>+57 323 384 7323<br />+57 310 371 6894</p>
                             </div>
                         </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
+                            <div class="contact-detail-text">
                                 <h4>Horario</h4>
-                                <p>Lunes a Viernes: 9am - 6pm</p>
-                                <p>Sábado: 9am - 2pm</p>
-                                <p>Domingo: Cerrado</p>
+                                <p>Lun-Vie: 9am - 6pm<br />Sáb: 9am - 2pm</p>
                             </div>
                         </div>
-
-                        <br />
+                        <div class="contact-social">
+                            <a href="https://wa.me/573103716894" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
-
-                    <div class="contact-form" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="contact-right">
+                        <h3>Envíanos un Mensaje</h3>
                         <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Nombre</label>
-                                <input type="text" id="name" name="name" placeholder="Tu nombre" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="Teléfono">Teléfono</label>
-                                <input
-                                    type="Teléfono"
-                                    id="Teléfono"
-                                    name="Teléfono"
-                                    placeholder="Tu Teléfono"
-                                    required
-                                />
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Nombre</label>
+                                    <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Teléfono">Teléfono</label>
+                                    <input
+                                        type="tel"
+                                        id="Teléfono"
+                                        name="Teléfono"
+                                        placeholder="Tu teléfono"
+                                        required
+                                    />
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -731,10 +716,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Mensaje</label>
-                                <textarea id="message" name="message" placeholder="Tu mensaje" required></textarea>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    placeholder="Cuéntanos sobre tu proyecto..."
+                                    required
+                                ></textarea>
                             </div>
-                            <button type="submit" class="btn" style="border: none; cursor: pointer; width: 100%">
-                                Enviar Mensaje
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-paper-plane"></i> Enviar Mensaje
                             </button>
                         </form>
                     </div>
@@ -742,169 +732,121 @@
             </div>
         </section>
 
-        <!-- EmailJS SDK -->
+        <!-- EmailJS -->
         <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
         <script>
             (function () {
-                emailjs.init("bLUv2HlzUImiOEYO1"); // Tu Public Key
+                emailjs.init("bLUv2HlzUImiOEYO1");
             })();
-
             document.getElementById("contactForm").addEventListener("submit", function (e) {
                 e.preventDefault();
-
-                // Cambiar el texto del botón y deshabilitarlo
-                var btn = document.querySelector("button");
-                btn.innerText = "Enviando...";
+                var btn = document.querySelector(".btn-submit");
+                btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Enviando...';
                 btn.disabled = true;
-
-                // Obtener los datos del formulario
                 var formData = new FormData(this);
                 var data = {
                     name: formData.get("name"),
                     email: formData.get("email"),
                     message: formData.get("message"),
-                    time: new Date().toLocaleString(), // Agregar la hora al mensaje
+                    time: new Date().toLocaleString(),
                 };
-
-                // Enviar el formulario a EmailJS
-                emailjs
-                    .send("service_py9ctgf", "template_52p8rdn", data) // Reemplaza template_52p8rdn con tu template ID
-                    .then(
-                        function () {
-                            // Mostrar el mensaje de éxito
-                            var confirmationMessage = document.getElementById("confirmationMessage");
-                            confirmationMessage.style.display = "block";
-                            confirmationMessage.style.opacity = "1";
-
-                            // Cambiar el texto del botón
-                            btn.innerText = "Mensaje Enviado";
+                emailjs.send("service_py9ctgf", "template_52p8rdn", data).then(
+                    function () {
+                        var msg = document.getElementById("confirmationMessage");
+                        msg.style.display = "block";
+                        msg.style.opacity = "1";
+                        btn.innerHTML = '<i class="fas fa-check"></i> ¡Mensaje Enviado!';
+                        setTimeout(function () {
+                            msg.style.opacity = "0";
                             setTimeout(function () {
-                                confirmationMessage.style.opacity = "0"; // Hacer que el mensaje desaparezca
-                                setTimeout(function () {
-                                    confirmationMessage.style.display = "none"; // Ocultar el mensaje después de la animación
-                                }, 500); // Tiempo de espera para que se complete la animación
-                            }, 3000); // El mensaje desaparece después de 3 segundos
-
-                            // Recargar la página después de que desaparezca el mensaje
-                            setTimeout(function () {
-                                location.reload(); // Recargar la página después de 3.5 segundos
-                            }, 3500);
-                        },
-                        function (error) {
-                            alert("Error al enviar el mensaje: " + JSON.stringify(error));
-                            btn.innerText = "Intentar de nuevo";
-                            btn.disabled = false;
-                        }
-                    );
+                                msg.style.display = "none";
+                            }, 500);
+                        }, 3000);
+                        setTimeout(function () {
+                            location.reload();
+                        }, 3500);
+                    },
+                    function (error) {
+                        alert("Error: " + JSON.stringify(error));
+                        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Intentar de nuevo';
+                        btn.disabled = false;
+                    },
+                );
             });
         </script>
-        <!-- Contenedor del mensaje de confirmación -->
-        <div id="confirmationMessage" class="confirmation-message" style="display: none">Mensaje enviado con éxito</div>
+        <div id="confirmationMessage" class="confirmation-message" style="display: none">
+            ✓ Mensaje enviado con éxito
+        </div>
 
         <!-- Footer -->
         <footer>
             <div class="container">
-                <div class="footer-container">
-                    <div class="footer-about">
-                        <div class="footer-logo">
-                            <h2>Edutech Ltda</h2>
-                        </div>
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <h2>Edutech Ltda</h2>
                         <p>
-                            Somos una empresa especializada en desarrollo web y soluciones digitales, comprometida con
-                            la innovación y la excelencia para impulsar tu negocio.
+                            Empresa especializada en desarrollo web y soluciones digitales. Transformamos tu visión en
+                            realidad con tecnología de vanguardia.
                         </p>
+                        <div class="footer-social">
+                            <a href="https://wa.me/573103716894" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
-                    <div class="footer-links">
-                        <h3>Enlaces Rápidos</h3>
+                    <div class="footer-col">
+                        <h3>Navegación</h3>
                         <ul>
                             <li><a href="#home">Inicio</a></li>
                             <li><a href="#services">Servicios</a></li>
                             <li><a href="#projects">Proyectos</a></li>
+                            <li><a href="#process">Proceso</a></li>
                             <li><a href="#mission-vision">Nosotros</a></li>
                             <li><a href="#blog">Blog</a></li>
-                            <li><a href="#contact">Contacto</a></li>
                         </ul>
                     </div>
-                    <div class="footer-services">
-                        <h3>Nuestros Servicios</h3>
+                    <div class="footer-col">
+                        <h3>Servicios</h3>
                         <ul>
-                            <li><a href="#">Desarrollo Web</a></li>
-                            <li><a href="#">Tiendas Online</a></li>
-                            <li><a href="#">Aplicaciones Móviles</a></li>
-                            <li><a href="#">Software a Medida</a></li>
-                            <li><a href="#">Actualización de Código</a></li>
-                            <li><a href="#">Mantenimiento</a></li>
+                            <li><a href="#services">Desarrollo Web</a></li>
+                            <li><a href="#services">Tiendas Online</a></li>
+                            <li><a href="#services">Apps Móviles</a></li>
+                            <li><a href="#services">Software a Medida</a></li>
+                            <li><a href="#services">Mantenimiento</a></li>
                         </ul>
                     </div>
-                    <div class="footer-contact">
+                    <div class="footer-col">
                         <h3>Contacto</h3>
-                        <p><i class="fas fa-envelope"></i>edutechltda.web@gmail.com</p>
-                        <p><i class="fab fa-whatsapp"></i> +57 310 371 6894</p>
-                        <p><i class="fas fa-clock"></i> Lun-Vie: 9am - 6pm</p>
-                        <p><i class="fas fa-clock"></i> Sáb: 9am - 2pm</p>
-                        <p><i class="fas fa-clock"></i> Dom: Cerrado</p>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i><span>edutechltda.web@gmail.com</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fab fa-whatsapp"></i><span>+57 310 371 6894</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-clock"></i><span>Lun-Vie: 9am - 6pm</span>
+                        </div>
+                        <div class="footer-contact-item"><i class="fas fa-clock"></i><span>Sáb: 9am - 2pm</span></div>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2024 <span>Edutech Ltda</span>. Todos los derechos reservados.</p>
+                    <p>&copy; 2025 <span>Edutech Ltda</span>. Todos los derechos reservados.</p>
                 </div>
             </div>
         </footer>
 
+        <!-- WhatsApp -->
         <a
-            href="https://wa.me/573103716894?text=Hola%2C%20cordial%20saludo.%20Necesito%20asesor%C3%ADa%20sobre%20sus%20servicios.%20%C2%A1Gracias!"
+            href="https://wa.me/573103716894?text=Hola,%20necesito%20asesoría%20sobre%20sus%20servicios."
             class="whatsapp-button"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
         >
             <span class="tooltip">¿Necesitas asesoría? ¡Escríbenos!</span>
             <i class="fab fa-whatsapp"></i>
         </a>
 
-        <style>
-            .whatsapp-button {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                background-color: #25d366;
-                color: white;
-                border-radius: 50%;
-                padding: 15px;
-                font-size: 24px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-                z-index: 1000;
-                transition: background-color 0.3s ease, transform 0.3s ease;
-                text-decoration: none;
-            }
-
-            .whatsapp-button:hover {
-                background-color: #128c7e;
-                transform: scale(1.1);
-            }
-
-            .whatsapp-button .tooltip {
-                position: absolute;
-                right: 60px;
-                top: 50%;
-                transform: translateY(-50%);
-                background-color: #128c7e;
-                color: white;
-                padding: 8px 12px;
-                border-radius: 20px;
-                white-space: nowrap;
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.3s ease, transform 0.3s ease;
-                font-size: 14px;
-            }
-
-            .whatsapp-button:hover .tooltip {
-                opacity: 1;
-                transform: translateY(-50%) translateX(-10px);
-            }
-        </style>
-
-        <!-- JavaScript -->
-        <script src="script.js"></script>
+      <script src="/public/js/script.js"></script>
     </body>
 </html>
