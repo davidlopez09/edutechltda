@@ -114,16 +114,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ===== SMOOTH SCROLL =====
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", (e) => {
             e.preventDefault();
-            const targetId = anchor.getAttribute("href");
-            const t = document.querySelector(targetId);
-            if (t) {
-                const headerHeight = document.getElementById("header").offsetHeight;
-                const targetTop = t.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                window.scrollTo({ top: targetTop, behavior: "smooth" });
-            }
+            const t = document.querySelector(anchor.getAttribute("href"));
+            if (t) window.scrollTo({ top: t.offsetTop - 0, behavior: "smooth" });
         });
     });
 
