@@ -515,79 +515,60 @@ nav {
 
 /* ===== SERVICES ===== */
 .services {
-    padding: 120px 0;
+    padding: 80px 0;
     background: white;
-    position: relative;
-    overflow: hidden;
 }
-.services::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
-
 .section-label {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--primary);
-    background: rgba(42, 165, 168, 0.08);
-    padding: 6px 14px;
+    background: rgba(42, 165, 168, 0.09);
+    padding: 5px 13px;
     border-radius: 30px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 .section-title {
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
 }
 .section-title h2 {
-    font-family: "Clash Display", sans-serif;
-    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-size: 2.2rem;
     color: var(--dark);
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
+    margin-bottom: 14px;
     font-weight: 700;
+    letter-spacing: -0.02em;
 }
 .section-title h2 span {
     color: var(--primary);
 }
 .section-title p {
-    font-size: 1rem;
+    font-size: 0.97rem;
     color: var(--text-muted);
-    max-width: 600px;
+    max-width: 580px;
     margin: 0 auto;
     line-height: 1.7;
 }
-
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 20px;
 }
-
 .service-card {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 36px 30px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 32px 26px;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
-    group: true;
-}
-.service-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(42, 165, 168, 0.05), transparent);
-    opacity: 0;
-    transition: opacity 0.4s ease;
 }
 .service-card::after {
     content: "";
@@ -598,75 +579,77 @@ nav {
     height: 3px;
     background: linear-gradient(90deg, var(--primary), var(--accent));
     transform: scaleX(0);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--primary-light);
+    border-color: rgba(42, 165, 168, 0.25);
     background: white;
-}
-.service-card:hover::before {
-    opacity: 1;
 }
 .service-card:hover::after {
     transform: scaleX(1);
 }
-
 .service-icon-wrap {
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(135deg, rgba(42, 165, 168, 0.12), rgba(42, 165, 168, 0.06));
-    border-radius: 16px;
+    width: 56px;
+    height: 56px;
+    background: rgba(42, 165, 168, 0.09);
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(42, 165, 168, 0.18);
     transition: all 0.3s ease;
-    border: 1px solid rgba(42, 165, 168, 0.2);
 }
 .service-card:hover .service-icon-wrap {
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    box-shadow: 0 8px 24px rgba(42, 165, 168, 0.3);
+    background: var(--primary);
+    box-shadow: 0 8px 20px rgba(42, 165, 168, 0.3);
 }
 .service-icon-wrap i {
-    font-size: 26px;
+    font-size: 22px;
     color: var(--primary);
     transition: color 0.3s ease;
 }
 .service-card:hover .service-icon-wrap i {
     color: white;
 }
-
 .service-card h3 {
-    font-family: "Clash Display", sans-serif;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.08rem;
+    font-weight: 700;
     color: var(--dark);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 .service-card p {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     color: var(--text-muted);
     line-height: 1.7;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+}
+.service-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    background: rgba(42, 165, 168, 0.08);
+    color: var(--primary);
 }
 .service-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     color: var(--primary);
     font-weight: 600;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     text-decoration: none;
-    transition: all 0.3s ease;
 }
 .service-link i {
+    font-size: 0.75rem;
     transition: transform 0.3s ease;
-    font-size: 0.8rem;
-}
-.service-link:hover {
-    color: var(--primary-dark);
 }
 .service-link:hover i {
     transform: translateX(4px);
