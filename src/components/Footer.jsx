@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { companyInfo } from "../data/content";
 import { WhatsAppIcon } from "./WhatsAppButton";
+import { getAssetUrl } from "../utils/assets";
 
 export const Footer = () => {
   const scrollTo = (e, id) => {
@@ -28,7 +29,7 @@ export const Footer = () => {
           <div className="footer-brand">
             <div className="footer-logo">
               <img
-                src="/images/edutechlogo-white.png"
+                src={getAssetUrl("/images/edutechlogo-white.png")}
                 alt="Edutech Ltda"
                 style={{ maxHeight: "46px" }}
               />

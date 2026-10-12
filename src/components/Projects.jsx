@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Eye, ExternalLink, X, Tag, CheckCircle2, MessageSquare, Layers, Building } from "lucide-react";
 import { projects, companyInfo } from "../data/content";
+import { getAssetUrl } from "../utils/assets";
 
 export const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -62,11 +63,11 @@ export const Projects = () => {
             <div className="project-card" key={project.id}>
               <div className="project-img">
                 <img
-                  src={project.image}
+                  src={getAssetUrl(project.image)}
                   alt={project.title}
                   loading="lazy"
                   onError={(e) => {
-                    e.currentTarget.src = "/images/homeNuevo.png";
+                    e.currentTarget.src = getAssetUrl("/images/homeNuevo.png");
                   }}
                 />
                 <div className="project-overlay">
@@ -128,10 +129,10 @@ export const Projects = () => {
 
             <div className="modal-image-container">
               <img
-                src={selectedProject.image}
+                src={getAssetUrl(selectedProject.image)}
                 alt={selectedProject.title}
                 onError={(e) => {
-                  e.currentTarget.src = "/images/homeNuevo.png";
+                  e.currentTarget.src = getAssetUrl("/images/homeNuevo.png");
                 }}
               />
               <div className="modal-img-badge">

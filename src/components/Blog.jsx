@@ -1,6 +1,7 @@
 import React from "react";
 import { Calendar, ArrowRight } from "lucide-react";
 import { blogPosts } from "../data/content";
+import { getAssetUrl } from "../utils/assets";
 
 export const Blog = () => {
   return (
@@ -22,11 +23,11 @@ export const Blog = () => {
             <article className="blog-card" key={post.id}>
               <div className="blog-img">
                 <img
-                  src={post.image}
+                  src={getAssetUrl(post.image)}
                   alt={post.title}
                   loading="lazy"
                   onError={(e) => {
-                    e.currentTarget.src = "/images/homeNuevo.png";
+                    e.currentTarget.src = getAssetUrl("/images/homeNuevo.png");
                   }}
                 />
               </div>

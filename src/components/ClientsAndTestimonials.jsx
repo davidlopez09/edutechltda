@@ -1,6 +1,7 @@
 import React from "react";
 import { Star, Quote, CheckCircle } from "lucide-react";
 import { clients, testimonials } from "../data/content";
+import { getAssetUrl } from "../utils/assets";
 
 export const ClientsAndTestimonials = () => {
   // Duplicar listas para animación de carrusel continuo fluido
@@ -29,7 +30,7 @@ export const ClientsAndTestimonials = () => {
             {duplicatedClients.map((client, index) => (
               <div className="client-logo" key={index} title={client.name}>
                 <img
-                  src={client.logo}
+                  src={getAssetUrl(client.logo)}
                   alt={client.name}
                   loading="lazy"
                   onError={(e) => {

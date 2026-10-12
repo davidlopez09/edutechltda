@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Rocket, ArrowRight, Code, Sparkles, CheckCircle2 } from "lucide-react";
 import { stats } from "../data/content";
+import { getAssetUrl } from "../utils/assets";
 
 const codeSnippets = [
   "<div>",
@@ -149,7 +150,7 @@ export const Hero = () => {
             <div className="hero-card-stack">
               <div className="floating-card card-main">
                 <img
-                  src="/images/homeNuevo.png"
+                  src={getAssetUrl("/images/homeNuevo.png")}
                   alt="Desarrollo Web Edutech"
                   loading="eager"
                 />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import { getAssetUrl } from "../utils/assets";
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -70,7 +71,7 @@ export const Navbar = () => {
             onClick={(e) => handleLinkClick(e, "#home")}
             aria-label="Edutech Ltda Home"
           >
-            <img src="/images/edutechlogo-transparent.png" alt="Edutech Ltda" />
+            <img src={getAssetUrl("/images/edutechlogo-transparent.png")} alt="Edutech Ltda" />
           </a>
 
           <ul className={`nav-links ${mobileMenuOpen ? "active" : ""}`}>
